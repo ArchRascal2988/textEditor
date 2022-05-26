@@ -18,12 +18,12 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      HtmlWebpackPlugin({
+      new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Text Editor'
       }),
-      InjectManifest({
-        swSrc: "src-sw.js",
+      new InjectManifest({
+        swSrc: "./src-sw.js",
         swDest: "service-worker.js"
       }),
       new WebpackPwaManifest({
