@@ -14,7 +14,7 @@ const initdb = async () =>
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (key, eContent) => {
-  const db= openDB('jate',1);
+  const db= await openDB('jate',1);
   const trans= db.transaction('jate','readwrite');
   const store= trans.objectStore('jate');
   const request= store.put(eContent, key);
@@ -23,7 +23,7 @@ export const putDb = async (key, eContent) => {
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
-  const db= openDB('jate',1);
+  const db= await openDB('jate',1);
   const trans= db.transaction('jate','readonly');
   const store= trans.objectStore('jate');
   const request= store.getAll();
